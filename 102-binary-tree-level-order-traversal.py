@@ -1,16 +1,18 @@
 from treenode import TreeNode, createBTree,drawtree
 from typing import Optional, List
+from collections import deque
 
 class Solution:
   def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
     if not root: return []
 
     res = []
-    queue = [root]
+    queue = deque()
+    queue.append(root)
     while queue:
       current_nodes = []
       for _ in range(len(queue)):      
-        current = queue.pop(0)
+        current = queue.popleft()
 
         current_nodes.append(current.val)
 
