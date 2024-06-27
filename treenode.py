@@ -7,7 +7,7 @@ class TreeNode:
     def __repr__(self):
         return 'TreeNode({})'.format(self.val)
       
-def createBTree(data, index):
+def createBTree(data, index = 0):
     pNode = None
     if index < len(data):
         if data[index] == None:
