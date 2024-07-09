@@ -1,6 +1,5 @@
 from typing import List, Optional
-from listnode import ListNode
-from listnode_utils import toArray, generateListNodes
+from listnode import ListNode, toArray, generateListNodes
 
 class Solution:
   def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:

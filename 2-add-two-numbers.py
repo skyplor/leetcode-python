@@ -1,5 +1,4 @@
-from listnode import ListNode
-from listnode_utils import toArray, generateListNodes
+from listnode import ListNode, toArray, generateListNodes
 from typing import Optional
 
 class Solution:

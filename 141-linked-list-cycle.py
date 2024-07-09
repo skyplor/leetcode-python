@@ -1,6 +1,5 @@
 from typing import Optional
-from listnode import ListNode
-from listnode_utils import toArray, generateListNodes
+from listnode import ListNode, toArray, generateListNodes
 
 class Solution:
   def hasCycle(self, head: Optional[ListNode]) -> bool:

@@ -43,7 +43,7 @@ class Codec:
       node.right = dfs()
       return node
       
-    return dfs()      
+    return dfs()
     
 ser = Codec()
 deser = Codec()

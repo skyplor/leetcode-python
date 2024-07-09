@@ -1,6 +1,5 @@
-from listnode import ListNode
+from listnode import ListNode, toArray, generateListNodes
 from typing import Optional
-from listnode_utils import toArray, generateListNodes
 
 class Solution:
   def reverseKGroup(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
