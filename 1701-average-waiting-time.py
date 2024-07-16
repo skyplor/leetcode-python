@@ -1,33 +1,26 @@
 from typing import List
-from collections import deque
 
 class Solution:
   def averageWaitingTime(self, customers: List[List[int]]) -> float:
     '''
     curTime variable
-    waitingTimes array
+    waitingTime variable
 
     pop from queue, check the arrival time
       If arrival >= curTime, set curTime to arrival
 
     curTime += time[i]
-    waitingTime = curTime - arrival
-    
-    add waitingTime to this array
+    waitingTime += curTime - arrival
     '''
     curTime = 0
-    waitingTimes = []
-    
-    queue = deque(customers)
-    while queue:
-      arrival, time = queue.popleft()
+    waitingTime = 0
+    for arrival, time in customers:
       if arrival > curTime:
         curTime = arrival
       curTime += time
-      waitingTime = curTime - arrival
-      waitingTimes.append(waitingTime)
+      waitingTime += curTime - arrival
 
-    return sum(waitingTimes) / len(waitingTimes)
+    return waitingTime / len(customers)
 
 sol = Solution()
 # customers = [[1,2],[2,5],[4,3]]
