@@ -8,13 +8,11 @@ class TreeNode:
         return 'TreeNode({})'.format(self.val)
       
 def createBTree(data, index = 0):
-    pNode = None
-    if index < len(data):
-        if data[index] == None:
-            return
-        pNode = TreeNode(data[index])
-        pNode.left = createBTree(data, 2 * index + 1) # [1, 3, 7, 15, ...]
-        pNode.right = createBTree(data, 2 * index + 2) # [2, 5, 12, 25, ...]
+    if index >= len(data) or data[index] is None:
+        return None
+    pNode = TreeNode(data[index])
+    pNode.left = createBTree(data, 2 * index + 1) # [1, 3, 7, 15, ...]
+    pNode.right = createBTree(data, 2 * index + 2) # [2, 5, 12, 25, ...]
     return pNode
 
 def deserialize(string):

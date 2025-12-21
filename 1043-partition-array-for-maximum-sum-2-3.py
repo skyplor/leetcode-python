@@ -1,0 +1,33 @@
+class Solution:
+    def maxSumAfterPartitioning(self, arr: list[int], k: int) -> int:
+        '''
+        since we want contiguous subarrays, that means we will loop through each group, each group will be of `k` length. We can probably use DP for this and have a function to recursively solve for `l` and `r` to return the sum of the elements
+        Base case is if the l:r passed in is <= k:
+            - Then we return k * max(arr[l:r])
+        '''
+        n = len(arr)
+        dp = [0] * (n+1)
+
+        for i in range(n-1, -1, -1):
+            cur_max = 0
+            res = 0
+            for j in range(i, min(i + k, n)):
+                cur_max = max(cur_max, arr[j])
+                window_size = j - i + 1
+                cur_sum = window_size * cur_max + dp[j+1]
+                res = max(res, cur_sum)
+            dp[i] = res
+
+        return dp[0]
+
+
+sol = Solution()
+arr = [1, 15, 7, 9, 2, 5, 10]
+k = 3
+print(f'output: {sol.maxSumAfterPartitioning(arr, k)}, expected: 84')
+arr = [1, 4, 1, 5, 7, 3, 6, 1, 9, 9, 3]
+k = 4
+print(f'output: {sol.maxSumAfterPartitioning(arr, k)}, expected: 83')
+arr = [1]
+k = 1
+print(f'output: {sol.maxSumAfterPartitioning(arr, k)}, expected: 1')
